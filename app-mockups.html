@@ -9,89 +9,295 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        body {
+            background: #fafafa;
+            padding-top: 80px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
         .project-header {
             max-width: 800px;
-            margin: 0 auto 2.5rem auto;
-            padding-top: 3rem;
+            margin: 0 auto 4rem auto;
+            padding-top: 2rem;
             text-align: left;
+            position: relative;
+        }
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #2c2c2c;
+        }
+        
+        .header-image-container {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .header-image-container img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
         }
         .project-title {
             font-size: 2.8rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.01em;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            color: #2c2c2c;
         }
         .project-meta {
-            color: #0070f3;
-            font-size: 1rem;
-            font-weight: 400;
-            margin-bottom: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            line-height: 1.6;
         }
         .back-link {
             display: inline-block;
-            margin-bottom: 2rem;
-            color: #0070f3;
-            text-decoration: underline;
-            font-size: 1rem;
-            font-weight: 400;
+            margin-bottom: 3rem;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-bottom: 1px solid #e0e0e0;
+            transition: border-color 0.3s ease;
+            padding-bottom: 0.2rem;
+        }
+        .back-link:hover {
+            border-bottom-color: #2c2c2c;
         }
         .project-section {
             max-width: 800px;
-            margin: 0 auto 3rem auto;
+            margin: 0 auto 4rem auto;
+            padding: 0;
         }
-        .project-image-block {
-            width: 100%;
-            margin: 2.5rem 0;
-            text-align: center;
-        }
-        .project-image-block img {
-            width: 100%;
-            max-width: 800px;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-        }
-        .project-image-caption {
-            color: #888;
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
+        .project-section:first-of-type {
+            margin-top: 2rem;
         }
         .project-section h2 {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #2c2c2c;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .project-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: #2c2c2c;
         }
         .project-section p, .project-section ul {
-            font-size: 1.1rem;
-            color: #333;
+            font-size: 1rem;
+            color: #444;
             font-weight: 300;
-            line-height: 1.7;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
         }
         .project-section ul {
-            margin-left: 1.5rem;
+            margin-left: 0;
+            list-style: none;
+            padding-left: 0;
         }
-        .mockup-grid {
+        .project-section li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            line-height: 1.7;
+        }
+        .project-section li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #666;
+            font-weight: 400;
+        }
+        .highlight-box {
+            background: #f8f8f8;
+            border-left: 4px solid #2c2c2c;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #555;
+        }
+        /* Projects Grid Styles */
+        .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin: 2rem 0;
         }
-        .mockup-item {
+        .project-item {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .project-image {
             text-align: center;
         }
-        .mockup-item img {
+        .project-image img {
             width: 100%;
             max-width: 200px;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
         }
-        .mockup-item img:hover {
-            transform: scale(1.05);
+        /* Carousel Styles */
+        .carousel-container {
+            margin: 0.2rem 0 2rem 0;
         }
-        .mockup-caption {
-            margin-top: 0.5rem;
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f8f8;
+        }
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .carousel-slide.active {
+            display: flex;
+            opacity: 1;
+        }
+        .carousel-slide img {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+            object-fit: contain;
+        }
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .carousel-btn {
+            background: #2c2c2c;
+            color: white;
+            border: none;
+            padding: 0.5rem 0.8rem;
+            border-radius: 0;
+            cursor: pointer;
             font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+        .carousel-btn:hover {
+            background: #555;
+        }
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .dot.active {
+            background: #2c2c2c;
+        }
+        .project-info {
+            text-align: left;
+        }
+        .project-info h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+            color: #2c2c2c;
+            letter-spacing: 0.02em;
+        }
+        .project-info p {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        .tag {
+            background: #f8f8f8;
             color: #666;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 300;
+            border: 1px solid #e0e0e0;
+        }
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .project-item {
+                padding: 1rem;
+            }
+            .project-info {
+                text-align: center;
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            .project-section {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+            .project-title {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
@@ -100,110 +306,202 @@
         <a href="index.html#projects" class="back-link">← Back to Projects</a>
         <header class="project-header">
             <div class="project-title">Mobile App Designs</div>
-            <div class="project-meta">Personal Project &nbsp;|&nbsp; Mobile UI/UX Design &nbsp;|&nbsp; 2025</div>
-            <div class="project-meta">Tools: Figma, Adobe Illustrator, Design Systems</div>
-            <div class="project-meta">Role: UI/UX Designer</div>
+            <div class="project-meta">Interaction Design &nbsp;|&nbsp; UIUX &nbsp;|&nbsp; 2023-2024</div>
+            <div class="project-meta">Tools: Adobe Illustrator, Figma, Miro</div>
         </header>
         
+        <!-- Y-Alert Project -->
         <div class="project-section">
-            <h2>Overview</h2>
-            <p>Collection of mobile application interface designs exploring various user experience patterns, visual styles, and interaction paradigms. These designs demonstrate proficiency in mobile-first design principles and modern UI/UX trends.</p>
-        </div>
-
-        <div class="project-section">
-            <h2>Design Collection</h2>
-            <div class="mockup-grid">
-                <div class="mockup-item">
-                    <img src="App mockup  (1)/1.png" alt="App Mockup 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div style="display: none; width: 200px; height: 400px; background: #f0f0f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #666;">Mockup 1</div>
-                    <div class="mockup-caption">Home Screen Design</div>
+            <h2>Y-Alert</h2>
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-slide active">
+                        <img src="images/yalrert1.png" alt="Y-Alert App Screen 1" />
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/yalert2.png" alt="Y-Alert App Screen 2" />
+                    </div>
                 </div>
-                <div class="mockup-item">
-                    <img src="App mockup  (1)/2.png" alt="App Mockup 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div style="display: none; width: 200px; height: 400px; background: #f0f0f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #666;">Mockup 2</div>
-                    <div class="mockup-caption">Navigation Interface</div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn prev" onclick="changeSlide('y-alert', -1)">←</button>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="currentSlide('y-alert', 1)"></span>
+                        <span class="dot" onclick="currentSlide('y-alert', 2)"></span>
+                    </div>
+                    <button class="carousel-btn next" onclick="changeSlide('y-alert', 1)">→</button>
                 </div>
-                <div class="mockup-item">
-                    <img src="App mockup  (1)/3.png" alt="App Mockup 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div style="display: none; width: 200px; height: 400px; background: #f0f0f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #666;">Mockup 3</div>
-                    <div class="mockup-caption">Content Display</div>
-                </div>
-                <div class="mockup-item">
-                    <img src="App mockup  (1)/4.png" alt="App Mockup 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div style="display: none; width: 200px; height: 400px; background: #f0f0f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #666;">Mockup 4</div>
-                    <div class="mockup-caption">User Profile</div>
-                </div>
-                <div class="mockup-item">
-                    <img src="App mockup  (1)/5.png" alt="App Mockup 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div style="display: none; width: 200px; height: 400px; background: #f0f0f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #666;">Mockup 5</div>
-                    <div class="mockup-caption">Settings Screen</div>
-                </div>
-                <div class="mockup-item">
-                    <img src="App mockup  (1)/6.png" alt="App Mockup 6" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div style="display: none; width: 200px; height: 400px; background: #f0f0f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #666;">Mockup 6</div>
-                    <div class="mockup-caption">Interactive Elements</div>
-                </div>
+            </div>
+            <p>Y-Alert is a mock-up app designed for international students at Yonsei University, addressing challenges such as language barriers and unfamiliar emergency systems. The app provides accessible, tailored information to help students better prepare for natural disasters.</p>
+            <div class="project-tags">
+                <span class="tag">UIUX</span>
+                <span class="tag">Human-Centered Design</span>
             </div>
         </div>
 
+        <!-- Bee Yonsei Project -->
         <div class="project-section">
-            <h2>Design Principles</h2>
-            <ul>
-                <li><strong>Mobile-First Approach:</strong> Designs optimized for touch interfaces and mobile constraints</li>
-                <li><strong>Consistent Visual Language:</strong> Unified color schemes, typography, and spacing systems</li>
-                <li><strong>Accessibility:</strong> High contrast ratios and touch-friendly target sizes</li>
-                <li><strong>User-Centered Design:</strong> Intuitive navigation patterns and clear information hierarchy</li>
-                <li><strong>Modern Aesthetics:</strong> Clean, minimalist design with strategic use of whitespace</li>
-            </ul>
+            <h2>Bee Yonsei</h2>
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-slide active">
+                        <img src="images/yonbee1.png" alt="Yonbee App Screen 1" />
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/yonbee2.png" alt="Yonbee App Screen 2" />
+                </div>
+                    <div class="carousel-slide">
+                        <img src="images/yonbee3.png" alt="Yonbee App Screen 3" />
+                </div>
+                    <div class="carousel-slide">
+                        <img src="images/yonbee4.png" alt="Yonbee App Screen 4" />
+                </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn prev" onclick="changeSlide('yonbee', -1)">←</button>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="currentSlide('yonbee', 1)"></span>
+                        <span class="dot" onclick="currentSlide('yonbee', 2)"></span>
+                        <span class="dot" onclick="currentSlide('yonbee', 3)"></span>
+                        <span class="dot" onclick="currentSlide('yonbee', 4)"></span>
+                </div>
+                    <button class="carousel-btn next" onclick="changeSlide('yonbee', 1)">→</button>
+                </div>
+            </div>
+            <p>This project addresses the global decline of honeybees through a community-mapping service for Yonsei University. The platform raises awareness, provides resources and incentives, and fosters collaboration to engage students in honeybee conservation and promote sustainable action.</p>
+            <div class="project-tags">
+                <span class="tag">UIUX</span>
+                <span class="tag">Systems Design</span>
+                <span class="tag">Sustainability</span>
+            </div>
         </div>
 
+        <!-- Origamind Project -->
         <div class="project-section">
-            <h2>Technical Skills Demonstrated</h2>
-            <ul>
-                <li><strong>Figma Proficiency:</strong> Component libraries, design systems, and prototyping</li>
-                <li><strong>Responsive Design:</strong> Adapting interfaces for different screen sizes</li>
-                <li><strong>Interaction Design:</strong> Micro-interactions and user flow optimization</li>
-                <li><strong>Visual Design:</strong> Color theory, typography, and layout composition</li>
-                <li><strong>Prototyping:</strong> Interactive prototypes for user testing and validation</li>
-            </ul>
+            <h2>Origamind</h2>
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-slide active">
+                        <img src="images/origamind1.png" alt="Origamind App Screen 1" />
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/origamind2.png" alt="Origamind App Screen 2" />
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn prev" onclick="changeSlide('origamind', -1)">←</button>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="currentSlide('origamind', 1)"></span>
+                        <span class="dot" onclick="currentSlide('origamind', 2)"></span>
+                    </div>
+                    <button class="carousel-btn next" onclick="changeSlide('origamind', 1)">→</button>
+                </div>
+            </div>
+            <p>Origami-ND is a mobile application that blends the traditional art of origami with modern journaling, offering a unique platform for emotional expression and self-reflection. By integrating writing and folding, the app transforms personal reflections into visually meaningful creations.</p>
+            <div class="project-tags">
+                <span class="tag">UIUX</span>
+                <span class="tag">Visual Storytelling</span>
+            </div>
         </div>
 
+        <!-- Request Project -->
         <div class="project-section">
-            <h2>Design Process</h2>
-            <p>Each mockup was created following a systematic design process:</p>
-            <ul>
-                <li><strong>Research & Analysis:</strong> Understanding target users and their needs</li>
-                <li><strong>Wireframing:</strong> Low-fidelity layouts to establish information architecture</li>
-                <li><strong>Visual Design:</strong> High-fidelity mockups with detailed styling</li>
-                <li><strong>Prototyping:</strong> Interactive prototypes for testing and iteration</li>
-                <li><strong>Refinement:</strong> Iterative improvements based on feedback</li>
-            </ul>
+            <h2>Re-Quest</h2>
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-slide active">
+                        <img src="images/request1.png" alt="Request App Screen 1" />
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/request2.png" alt="Request App Screen 2" />
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn prev" onclick="changeSlide('request', -1)">←</button>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="currentSlide('request', 1)"></span>
+                        <span class="dot" onclick="currentSlide('request', 2)"></span>
+                    </div>
+                    <button class="carousel-btn next" onclick="changeSlide('request', 1)">→</button>
+                </div>
+            </div>
+            <p>Re-Quest is a mobile application that gamifies recycling through augmented reality, transforming eco-friendly actions into a fun and rewarding experience. By guiding users to nearby recycling bins with AR animals and providing rewards for participation, the app fosters sustainable habits in an engaging way. Recognized for its innovation, Re-Quest received a Certificate of Commendation from the Institute for Higher Education Innovation.</p>
+            <div class="project-tags">
+                <span class="tag">UX Research</span>
+                <span class="tag">Sustainability</span>
+                <span class="tag">Social Innovation</span>
+            </div>
         </div>
 
-        <div class="project-section">
-            <h2>Key Features Explored</h2>
-            <ul>
-                <li><strong>Navigation Patterns:</strong> Bottom tabs, drawer navigation, and gesture-based interactions</li>
-                <li><strong>Content Display:</strong> Card layouts, list views, and grid systems</li>
-                <li><strong>User Input:</strong> Form design, search interfaces, and input validation</li>
-                <li><strong>Feedback Systems:</strong> Loading states, error messages, and success confirmations</li>
-                <li><strong>Personalization:</strong> User profiles, preferences, and customization options</li>
-            </ul>
         </div>
 
-        <div class="project-section">
-            <h2>Impact & Learning</h2>
-            <p>This collection demonstrates a strong foundation in mobile UI/UX design principles and modern design tools. The variety of interfaces shows versatility in addressing different user needs and application types.</p>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carousel functionality for multiple carousels
+            const carousels = {};
             
-            <p>Key learnings:</p>
-            <ul>
-                <li>Importance of design systems for consistency and efficiency</li>
-                <li>Mobile-specific considerations for touch interfaces</li>
-                <li>Balance between aesthetics and usability</li>
-                <li>Iterative design process for continuous improvement</li>
-            </ul>
-        </div>
-    </div>
+            // Initialize all carousels
+            const carouselIds = ['y-alert', 'yonbee', 'origamind', 'request'];
+            
+            carouselIds.forEach(carouselId => {
+                const carouselContainer = document.querySelector(`[onclick*="${carouselId}"]`)?.closest('.carousel-container');
+                if (carouselContainer) {
+                    carousels[carouselId] = {
+                        currentSlide: 0,
+                        slides: carouselContainer.querySelectorAll('.carousel-slide'),
+                        dots: carouselContainer.querySelectorAll('.dot'),
+                        totalSlides: carouselContainer.querySelectorAll('.carousel-slide').length
+                    };
+                    
+                    // Ensure first slide is active
+                    if (carousels[carouselId].totalSlides > 0) {
+                        showSlide(carouselId, 0);
+                    }
+                }
+            });
+
+            function showSlide(carouselId, n) {
+                const carousel = carousels[carouselId];
+                if (!carousel || carousel.totalSlides === 0) return;
+                
+                // Remove active class from all slides and dots
+                carousel.slides.forEach(slide => slide.classList.remove('active'));
+                carousel.dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Calculate the current slide index
+                if (n >= carousel.totalSlides) {
+                    carousel.currentSlide = 0;
+                } else if (n < 0) {
+                    carousel.currentSlide = carousel.totalSlides - 1;
+                } else {
+                    carousel.currentSlide = n;
+                }
+                
+                // Show the current slide and activate corresponding dot
+                carousel.slides[carousel.currentSlide].classList.add('active');
+                carousel.dots[carousel.currentSlide].classList.add('active');
+            }
+
+            window.changeSlide = function(carouselId, direction) {
+                const carousel = carousels[carouselId];
+                if (carousel) {
+                    showSlide(carouselId, carousel.currentSlide + direction);
+                }
+            }
+
+            window.currentSlide = function(carouselId, n) {
+                showSlide(carouselId, n - 1);
+            }
+
+            // Auto-advance all carousels every 5 seconds
+            carouselIds.forEach(carouselId => {
+                if (carousels[carouselId] && carousels[carouselId].totalSlides > 1) {
+                    setInterval(() => {
+                        showSlide(carouselId, carousels[carouselId].currentSlide + 1);
+                    }, 5000);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 
