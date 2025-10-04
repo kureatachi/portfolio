@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himitsu Studio – Project Details | Kurea Tachiiri</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .project-header {
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+            padding-top: 3rem;
+            text-align: left;
+        }
+        .project-title {
+            font-size: 2.8rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+        .project-meta {
+            color: #0070f3;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #0070f3;
+            text-decoration: underline;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .project-section {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+        }
+        .project-image-block {
+            width: 100%;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+        .project-image-block img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+        .project-image-caption {
+            color: #888;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+        .project-section h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        .project-section p, .project-section ul {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        .project-section ul {
+            margin-left: 1.5rem;
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .tech-tag {
+            background: #e3f2fd;
+            color: #0070f3;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .demo-link {
+            display: inline-block;
+            background: #0070f3;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+        .demo-link:hover {
+            background: #0051a2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html#projects" class="back-link">← Back to Projects</a>
+        <header class="project-header">
+            <div class="project-title">Himitsu Studio</div>
+            <div class="project-meta">Personal Project &nbsp;|&nbsp; Interactive Web Application &nbsp;|&nbsp; 2025</div>
+            <div class="project-meta">Tools: React, Next.js, TypeScript, GSAP, Tailwind CSS</div>
+            <div class="project-meta">Role: Full-Stack Developer & Designer</div>
+        </header>
+        
+        <div class="project-section">
+            <h2>Overview</h2>
+            <p>Himitsu Studio (秘密スタジオ) is an interactive art therapy web application where users can express their hidden feelings through digital origami. The platform provides a safe, creative space for emotional expression through a unique desk-drawer interface that reveals a secret studio.</p>
+        </div>
+
+        <div class="project-image-block">
+            <div style="width: 100%; height: 400px; background: linear-gradient(135deg, #f5e6d3 0%, #e6d7c3 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: #8B4513; font-size: 1.2rem;">
+                Himitsu Studio Interface Preview
+            </div>
+            <div class="project-image-caption">Interactive desk interface with sliding drawer animation</div>
+        </div>
+
+        <div class="project-section">
+            <h2>Technical Implementation</h2>
+            <p>Built with modern web technologies to create smooth, engaging interactions:</p>
+            <ul>
+                <li><strong>React 18 + Next.js 14:</strong> Component-based architecture with server-side rendering</li>
+                <li><strong>TypeScript:</strong> Type-safe development for better code quality</li>
+                <li><strong>GSAP:</strong> Professional-grade animations for the drawer sliding effect</li>
+                <li><strong>Tailwind CSS:</strong> Utility-first styling for responsive design</li>
+                <li><strong>State Management:</strong> React hooks for managing user journey flow</li>
+            </ul>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">GSAP</span>
+                <span class="tech-tag">Tailwind CSS</span>
+                <span class="tech-tag">Responsive Design</span>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Key Features</h2>
+            <ul>
+                <li><strong>Interactive Desk Interface:</strong> Click-to-open drawer with realistic sliding animation</li>
+                <li><strong>Messy Drawer Discovery:</strong> Hidden contents reveal the journey to the secret studio</li>
+                <li><strong>Origami Selection:</strong> Choose from different paper types and colors</li>
+                <li><strong>Emotional Expression:</strong> Write feelings and watch them transform into origami art</li>
+                <li><strong>Folding Animation:</strong> Smooth GSAP-powered origami folding sequence</li>
+                <li><strong>Gallery System:</strong> Save and view created origami pieces</li>
+                <li><strong>Mobile Responsive:</strong> Optimized experience across all devices</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <h2>Design Process</h2>
+            <p>The concept was inspired by the idea of hidden emotions and the therapeutic nature of creative expression. The desk-drawer metaphor represents how we often hide our true feelings, and the messy drawer symbolizes the chaos of emotions that can be transformed into something beautiful.</p>
+            
+            <p>Key design decisions:</p>
+            <ul>
+                <li>Hand-drawn style illustrations for a personal, organic feel</li>
+                <li>Warm color palette (ambers and browns) to create comfort</li>
+                <li>Realistic physics in animations to enhance believability</li>
+                <li>Progressive disclosure to guide users through the experience</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <h2>Technical Challenges</h2>
+            <p>Several interesting technical challenges were solved during development:</p>
+            <ul>
+                <li><strong>Layering System:</strong> Proper z-index management for drawer sliding behind desk frame</li>
+                <li><strong>Animation Synchronization:</strong> Coordinating multiple GSAP timelines for smooth transitions</li>
+                <li><strong>State Management:</strong> Complex state machine for managing user journey flow</li>
+                <li><strong>Image Optimization:</strong> Next.js Image component for performance</li>
+                <li><strong>Responsive Animations:</strong> Ensuring smooth animations across different screen sizes</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <h2>Impact & Learning</h2>
+            <p>This project demonstrates the intersection of technology and emotional well-being, showing how interactive design can create meaningful experiences. It showcases advanced frontend development skills while addressing real human needs for creative expression and emotional processing.</p>
+            
+            <p>Key learnings:</p>
+            <ul>
+                <li>Advanced GSAP animation techniques and timeline management</li>
+                <li>Complex state management patterns in React</li>
+                <li>Performance optimization for animation-heavy applications</li>
+                <li>User experience design for emotional and therapeutic contexts</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <a href="https://himitsu-studio.vercel.app" class="demo-link" target="_blank">View Live Demo →</a>
+        </div>
+    </div>
+</body>
+</html>
+

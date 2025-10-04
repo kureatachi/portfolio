@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel YUI – Project Details | Kurea Tachiiri</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #fafafa;
+            padding-top: 80px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        .project-header {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            padding-top: 2rem;
+            text-align: left;
+            position: relative;
+        }
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #2c2c2c;
+        }
+        .project-title {
+            font-size: 2.8rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            color: #2c2c2c;
+        }
+        .project-meta {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            line-height: 1.6;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 3rem;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-bottom: 1px solid #e0e0e0;
+            transition: border-color 0.3s ease;
+            padding-bottom: 0.2rem;
+        }
+        .back-link:hover {
+            border-bottom-color: #2c2c2c;
+        }
+        .project-section {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            padding: 0;
+        }
+        .project-section:first-of-type {
+            margin-top: 2rem;
+        }
+        .project-image-block {
+            width: 100%;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .project-image-block img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+        }
+        .project-image-caption {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .project-section h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #2c2c2c;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .project-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: #2c2c2c;
+        }
+        .project-section p, .project-section ul {
+            font-size: 1rem;
+            color: #444;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .project-section ul {
+            margin-left: 0;
+            list-style: none;
+            padding-left: 0;
+        }
+        .project-section li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            line-height: 1.7;
+        }
+        .project-section li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #666;
+            font-weight: 400;
+        }
+        .highlight-box {
+            background: #f8f8f8;
+            border-left: 4px solid #2c2c2c;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #555;
+        }
+        .brand-elements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .brand-element {
+            background: #f8f8f8;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+        .brand-element h4 {
+            color: #2c2c2c;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .brand-element p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+            font-weight: 300;
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .process-step {
+            background: #f8f8f8;
+            border: 1px solid #e0e0e0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .process-step h4 {
+            color: #2c2c2c;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .process-step p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+            font-weight: 300;
+        }
+        /* Carousel Styles */
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .carousel-slide {
+            display: none;
+            text-align: center;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
+        .carousel-slide img {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+        }
+        .carousel-caption {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .carousel-btn {
+            background: #f8f8f8;
+            border: 1px solid #e0e0e0;
+            color: #666;
+            padding: 0.8rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            font-weight: 300;
+        }
+        .carousel-btn:hover {
+            background: #2c2c2c;
+            color: #fff;
+            border-color: #2c2c2c;
+        }
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .dot.active {
+            background: #2c2c2c;
+        }
+        /* Video Component Styles */
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            background: #fff;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+            border: 1px solid #f0f0f0;
+        }
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-top: 2rem;
+        }
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+        
+        /* Carousel Styles */
+        .carousel-container {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            position: relative;
+        }
+        .carousel-container h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #2c2c2c;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .carousel-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: #2c2c2c;
+        }
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+        }
+        .carousel-slide {
+            display: none;
+            text-align: center;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
+        .carousel-slide img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+        }
+        .carousel-caption {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .carousel-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        .carousel-btn {
+            background: #2c2c2c;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+        .carousel-btn:hover {
+            background: #444;
+        }
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .dot.active {
+            background: #2c2c2c;
+        }
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f8f8f8;
+            border: 2px dashed #e0e0e0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            .project-section {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+            .carousel-container {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+            .project-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html#projects" class="back-link">← Back to Projects</a>
+        <header class="project-header">
+            <div class="project-title">Hotel YUI</div>
+            <div class="project-meta">Brand Identity &nbsp;|&nbsp; Visual Design &nbsp;|&nbsp; 2024</div>
+            <div class="project-meta">Tools: Adobe Illustrator, Premiere Pro, Figma</div>
+            <div class="project-meta">Role: Project Leader</div>
+        </header>
+        
+        <div class="project-image-block" style="max-width: 100%; margin: 0 auto 4rem auto; padding: 0;">
+            <img src="images/yui-header .png" alt="Hotel YUI Header" style="width: 100%; max-width: 100%; border-radius: 0;" />
+        </div>
+
+        <div class="project-section">
+            <h2>Project Overview</h2>
+            <div class="highlight-box">
+                <p>This project is a branding concept for a hotel inspired by Osulloc, the South Korean tea brand known for reviving traditional Korean tea culture. The hotel is designed as a space for reconnection, where guests can experience nature, meaningful relationships, and self-reflection, carrying that renewed sense of connection into their daily lives—reflecting Osulloc's emphasis on wellness, harmony, and tradition.</p>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Brand Story</h2>
+            <p>YUI (結) is a hotel that turns every stay into a meaningful connection. In today's fast-paced urban life, genuine connections—with nature, others, and ourselves—are increasingly rare. Inspired by OSULLOC's tea heritage, YUI transforms the hotel experience into a space where these essential bonds can be restored. Every moment at YUI becomes an opportunity to reconnect, leaving guests with a lasting sense of warmth and balance to carry into their daily lives.</p>
+            
+            <h2>Brand Concept and Mission</h2>
+            <p>YUI draws inspiration from the timeless essence of tea culture: the power to bring people together. More than a tea-themed hotel, YUI transforms each stay into meaningful moments of connection, reflection, and warmth that guests carry into their daily lives.</p>
+        </div>
+
+        <div class="project-image-block" style="max-width: 100%; margin: 0 auto 4rem auto; padding: 0;">
+            <img src="images/asistobemodelyui.png" alt="Brand Concept AS IS TO BE Model" style="width: 100%; max-width: 100%; border-radius: 0;" />
+        </div>
+
+        <div class="carousel-container">
+            <h2>Visual Identity</h2>
+            <div class="carousel-wrapper">
+                <div class="carousel-slide active">
+                    <img src="images/vi8.png" alt="Visual Identity 1" />
+                    <div class="carousel-caption">Visual Identity 1</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/vi9.png" alt="Visual Identity 2" />
+                    <div class="carousel-caption">Visual Identity 2</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/vi10.png" alt="Visual Identity 3" />
+                    <div class="carousel-caption">Visual Identity 3</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/vi11.png" alt="Visual Identity 4" />
+                    <div class="carousel-caption">Visual Identity 4</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/vi12.png" alt="Visual Identity 5" />
+                    <div class="carousel-caption">Visual Identity 5</div>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">←</button>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+                <button class="carousel-btn next-btn" onclick="changeSlide(1)">→</button>
+            </div>
+        </div>
+
+        </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.dot');
+            const totalSlides = slides.length;
+
+            function showSlide(n) {
+                slides[currentSlide].classList.remove('active');
+                dots[currentSlide].classList.remove('active');
+                
+                currentSlide = (n + totalSlides) % totalSlides;
+                
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+
+            window.changeSlide = function(direction) {
+                showSlide(currentSlide + direction);
+            }
+
+            window.currentSlide = function(n) {
+                showSlide(n - 1);
+            }
+
+            // Auto-advance slides every 5 seconds
+            if (totalSlides > 0) {
+                setInterval(() => {
+                    showSlide(currentSlide + 1);
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
+

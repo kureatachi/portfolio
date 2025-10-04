@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invisible X Campaign – Project Details | Kurea Tachiiri</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #fafafa;
+            padding-top: 80px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        .project-header {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            padding-top: 2rem;
+            text-align: left;
+            position: relative;
+        }
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #2c2c2c;
+        }
+        .project-title {
+            font-size: 2.8rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            color: #2c2c2c;
+        }
+        .project-meta {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            line-height: 1.6;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 3rem;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-bottom: 1px solid #e0e0e0;
+            transition: border-color 0.3s ease;
+            padding-bottom: 0.2rem;
+        }
+        .back-link:hover {
+            border-bottom-color: #2c2c2c;
+        }
+        .project-section {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            padding: 0;
+        }
+        .project-section:first-of-type {
+            margin-top: 2rem;
+        }
+        .project-image-block {
+            width: 100%;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .project-image-block img {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+        }
+        .project-image-caption {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .project-section h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #2c2c2c;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .project-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: #2c2c2c;
+        }
+        .project-section p, .project-section ul {
+            font-size: 1rem;
+            color: #444;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .project-section ul {
+            margin-left: 0;
+            list-style: none;
+            padding-left: 0;
+        }
+        .project-section li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            line-height: 1.7;
+        }
+        .project-section li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #666;
+            font-weight: 400;
+        }
+        .highlight-box {
+            background: #f8f8f8;
+            border-left: 4px solid #2c2c2c;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #555;
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .tech-tag {
+            background: #f8f8f8;
+            color: #666;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 300;
+            border: 1px solid #e0e0e0;
+        }
+        .ai-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .ai-tool {
+            background: #f8f8f8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+        .ai-tool h4 {
+            color: #2c2c2c;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .ai-tool p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+            font-weight: 300;
+        }
+        /* Carousel Styles */
+        .carousel-container {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            position: relative;
+        }
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .carousel-slide {
+            display: none;
+            text-align: center;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
+        .carousel-slide img {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+        }
+        .carousel-caption {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        .carousel-btn {
+            background: #f8f8f8;
+            border: 1px solid #e0e0e0;
+            color: #666;
+            padding: 0.8rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            font-weight: 300;
+        }
+        .carousel-btn:hover {
+            background: #2c2c2c;
+            color: #fff;
+            border-color: #2c2c2c;
+        }
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .dot.active {
+            background: #2c2c2c;
+        }
+        /* Documentation Link Styles */
+        .documentation-link {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .ppt-link {
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: border-color 0.3s ease;
+            padding-bottom: 0.2rem;
+        }
+        .ppt-link:hover {
+            border-bottom-color: #2c2c2c;
+        }
+        /* Video Component Styles */
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+        }
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-top: 2rem;
+        }
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+        
+        /* Carousel Styles */
+        .carousel-container {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            position: relative;
+        }
+        .carousel-container h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #2c2c2c;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .carousel-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: #2c2c2c;
+        }
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+        }
+        .carousel-slide {
+            display: none;
+            text-align: center;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
+        .carousel-slide img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+        }
+        .carousel-caption {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .carousel-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        .carousel-btn {
+            background: #2c2c2c;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+        .carousel-btn:hover {
+            background: #444;
+        }
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .dot.active {
+            background: #2c2c2c;
+        }
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f8f8f8;
+            border: 2px dashed #e0e0e0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            .project-section {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+            .project-image-block {
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+            .project-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html#projects" class="back-link">← Back to Projects</a>
+        <header class="project-header">
+            <div class="project-title">Invisible X Campaign</div>
+            <div class="project-meta">Brand Research | Campaign Proposal | 2025</div>
+            <div class="project-meta">Tools: Midjourney, Runway, LumaLabs, 11Labs, Veo3, Adobe Creative Suite</div>
+            <div class="project-meta">Role: AI Creative Director & Brand Strategist</div>
+        </header>
+        
+        <div class="carousel-container">
+            <h2>Project Gallery</h2>
+            <div class="carousel-wrapper">
+                <div class="carousel-slide active">
+                    <img src="images/po1.png" alt="Project Output 1" />
+                    <div class="carousel-caption">Project Output 1</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/po2.png" alt="Project Output 2" />
+                    <div class="carousel-caption">Project Output 2</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/po3.png" alt="Project Output 3" />
+                    <div class="carousel-caption">Project Output 3</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/po4.png" alt="Project Output 4" />
+                    <div class="carousel-caption">Project Output 4</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/po5.png" alt="Project Output 5" />
+                    <div class="carousel-caption">Project Output 5</div>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">←</button>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+                <button class="carousel-btn next-btn" onclick="changeSlide(1)">→</button>
+            </div>
+        </div>
+        
+        <div class="project-section">
+            <h2>Project Overview</h2>
+            <div class="highlight-box">
+                <p>This project was completed as part of the AI-Driven Brand System course, where I explored how AI can be applied in branding. I began with in-depth research on my chosen brand, identified a key challenge, and then proposed a campaign to address it. The final output was a fully AI-generated campaign video, created using various AI tools.</p>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Research & Insights</h2>
+            <p>I began by analyzing Glico's brand positioning, which emphasizes happiness, health, and emotional well-being. Research on the target audience revealed that many young adults in Japan feel a gap between societal expectations and their personal dreams, contributing to declining happiness levels. Given Glico's focus on these values, it was an ideal brand to address this societal challenge through a product campaign, while also tackling the brand's challenge of promoting products beyond their most popular offerings.</p>
+        </div>
+
+        <div class="project-section">
+            <h2>Campaign Strategy</h2>
+            <p>The target audience was young adults in Japan who often feel a gap between societal expectations and their personal dreams. The core concept, "Invisible X," encouraged individuals to pursue their personal aspirations, positioning BifiX as a companion on their journey toward happiness and well-being. The campaign was executed through a fully AI-generated video and interactive social media experiences, with AI tools supporting visual creation, storytelling, and audience insight analysis.</p>
+        </div>
+
+        <div class="carousel-container">
+            <h2>Campaign Visuals</h2>
+            <div class="carousel-wrapper">
+                <div class="carousel-slide active">
+                    <img src="images/ix_logo1.png" alt="Campaign Visual 1" />
+                    <div class="carousel-caption">Campaign Logo Design 1</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/ix_logo2.png" alt="Campaign Visual 2" />
+                    <div class="carousel-caption">Campaign Logo Design 2</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/ix_logo3.png" alt="Campaign Visual 3" />
+                    <div class="carousel-caption">Campaign Logo Design 3</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/ix_visual1.png" alt="Campaign Visual 4" />
+                    <div class="carousel-caption">Campaign Visual 1</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/ix_visual2.png" alt="Campaign Visual 5" />
+                    <div class="carousel-caption">Campaign Visual 2</div>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button class="carousel-btn prev-btn" onclick="changeSlide2(-1)">←</button>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide2(1)"></span>
+                    <span class="dot" onclick="currentSlide2(2)"></span>
+                    <span class="dot" onclick="currentSlide2(3)"></span>
+                    <span class="dot" onclick="currentSlide2(4)"></span>
+                    <span class="dot" onclick="currentSlide2(5)"></span>
+                </div>
+                <button class="carousel-btn next-btn" onclick="changeSlide2(1)">→</button>
+            </div>
+        </div>
+
+
+        <div class="project-section">
+            <h2>AI Tools & Technology</h2>
+            <p>This project explored the capabilities and creative potential of cutting-edge AI tools across different media types:</p>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">Midjourney</span>
+                <span class="tech-tag">Runway</span>
+                <span class="tech-tag">LumaLabs</span>
+                <span class="tech-tag">11Labs</span>
+                <span class="tech-tag">Veo3</span>
+                <span class="tech-tag">Adobe Illustrator</span>
+                <span class="tech-tag">CapCut</span>
+            </div>
+            
+            <div class="documentation-link">
+                <a href="https://www.figma.com/deck/J5V4JOIM42x6O0NAgPSNe9/2022195169_KureaTachiiri_BISFinal?node-id=72-337&t=IvkSVfXPRxrvesLn-1" class="ppt-link" target="_blank">View Full Project Proposal</a>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <h2 style="margin-bottom: 2rem; font-size: 1.4rem; font-weight: 400; color: #2c2c2c; letter-spacing: 0.05em; text-transform: uppercase; position: relative; padding-bottom: 1rem;">Campaign Video</h2>
+            <style>
+                .video-container h2::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 40px;
+                    height: 1px;
+                    background: #2c2c2c;
+                }
+            </style>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/Xig0mTGwCWU" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // First carousel (Project Gallery)
+            let currentSlide = 0;
+            const carousel1 = document.querySelector('.carousel-container:first-of-type');
+            const slides = carousel1 ? carousel1.querySelectorAll('.carousel-slide') : [];
+            const dots = carousel1 ? carousel1.querySelectorAll('.dot') : [];
+            const totalSlides = slides.length;
+
+
+            function showSlide(n) {
+                if (totalSlides === 0) return;
+                
+                // Remove active class from all slides and dots in first carousel
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Calculate the current slide index
+                if (n >= totalSlides) {
+                    currentSlide = 0;
+                } else if (n < 0) {
+                    currentSlide = totalSlides - 1;
+                } else {
+                    currentSlide = n;
+                }
+                
+                // Show the current slide and activate corresponding dot
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+
+            window.changeSlide = function(direction) {
+                showSlide(currentSlide + direction);
+            }
+
+            window.currentSlide = function(n) {
+                showSlide(n - 1);
+            }
+
+            // Second carousel (Campaign Visuals)
+            let currentSlide2 = 0;
+            const allCarousels = document.querySelectorAll('.carousel-container');
+            const carousel2 = allCarousels.length > 1 ? allCarousels[1] : null;
+            const slides2 = carousel2 ? carousel2.querySelectorAll('.carousel-slide') : [];
+            const dots2 = carousel2 ? carousel2.querySelectorAll('.dot') : [];
+            const totalSlides2 = slides2.length;
+
+
+            function showSlide2(n) {
+                if (totalSlides2 === 0) return;
+                
+                // Remove active class from all slides and dots in second carousel
+                slides2.forEach(slide => slide.classList.remove('active'));
+                dots2.forEach(dot => dot.classList.remove('active'));
+                
+                // Calculate the current slide index
+                if (n >= totalSlides2) {
+                    currentSlide2 = 0;
+                } else if (n < 0) {
+                    currentSlide2 = totalSlides2 - 1;
+                } else {
+                    currentSlide2 = n;
+                }
+                
+                // Show the current slide and activate corresponding dot
+                slides2[currentSlide2].classList.add('active');
+                dots2[currentSlide2].classList.add('active');
+            }
+
+            window.changeSlide2 = function(direction) {
+                showSlide2(currentSlide2 + direction);
+            }
+
+            window.currentSlide2 = function(n) {
+                showSlide2(n - 1);
+            }
+
+            // Auto-advance slides every 5 seconds for both carousels
+            if (totalSlides > 0) {
+                setInterval(() => {
+                    showSlide(currentSlide + 1);
+                }, 5000);
+            }
+
+            if (totalSlides2 > 0) {
+                setInterval(() => {
+                    showSlide2(currentSlide2 + 1);
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
+
+

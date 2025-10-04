@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Design System – Project Details | Kurea Tachiiri</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #fafafa;
+            padding-top: 80px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        .project-header {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            padding-top: 2rem;
+            text-align: left;
+            position: relative;
+        }
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #2c2c2c;
+        }
+        .project-title {
+            font-size: 2.8rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            color: #2c2c2c;
+        }
+        .project-meta {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .back-link {
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 2px;
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 3rem;
+            transition: color 0.3s ease;
+        }
+        .back-link:hover {
+            color: #2c2c2c;
+        }
+        .project-section {
+            margin-bottom: 4rem;
+            padding: 0;
+        }
+        .project-image-block {
+            width: 100%;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .project-image-block img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+        }
+        .project-image-caption {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .project-section h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #2c2c2c;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .project-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: #2c2c2c;
+        }
+        .project-section p {
+            font-size: 1rem;
+            color: #444;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .project-section ul {
+            font-size: 1rem;
+            color: #444;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .project-section ul li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .project-section ul li::before {
+            content: '•';
+            color: #2c2c2c;
+            font-weight: 600;
+            position: absolute;
+            left: 0;
+        }
+        .highlight-box {
+            background: #f8f8f8;
+            border-left: 4px solid #2c2c2c;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .highlight-box p {
+            margin: 0;
+            font-size: 1rem;
+            color: #444;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+            margin: 4rem 0;
+        }
+        
+        /* Carousel Styles */
+        .carousel-container {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            position: relative;
+        }
+        .carousel-container h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #2c2c2c;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .carousel-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: #2c2c2c;
+        }
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+        }
+        .carousel-slide {
+            display: none;
+            text-align: center;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
+        .carousel-slide img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+        }
+        .carousel-caption {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .carousel-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        .carousel-btn {
+            background: #2c2c2c;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+        .carousel-btn:hover {
+            background: #444;
+        }
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .dot.active {
+            background: #2c2c2c;
+        }
+        
+        /* Video Component Styles */
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+        }
+        .video-container h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #2c2c2c;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .video-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: #2c2c2c;
+        }
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-top: 2rem;
+        }
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html#projects" class="back-link">← Back to Projects</a>
+        <header class="project-header">
+            <div class="project-title">Calendar Design</div>
+            <div class="project-meta">Application Design &nbsp;|&nbsp; Motion Graphic &nbsp;|&nbsp; 2024</div>
+            <div class="project-meta">Tools: Adobe Illustrator, Photoshop, After Effects, Figma</div>
+            <div class="project-meta">Role: Visual Systems Designer</div>
+        </header>
+        
+        <div class="project-image-block" style="max-width: 100%; margin: 0 auto 4rem auto; padding: 0;">
+            <img src="images/calendar-header.png" alt="Calendar Design Header" style="width: 100%; max-width: 100%; border-radius: 0;" />
+        </div>
+
+        <div class="project-section">
+            <h2>Project Overview</h2>
+            <div class="highlight-box">
+                <p>The calendar highlights plastic pollution, showcasing how pervasive plastic items are in our daily lives. By pairing plastic items with corresponding months, it symbolizes the flow of time and seasons while raising awareness of their impact on our planet's air, water, and soil.</p>
+            </div>
+        </div>
+
+        <div class="project-image-block">
+            <img src="images/calendar.png" alt="Calendar Visual System" style="width: 100%; max-width: 800px; border-radius: 0; box-shadow: 0 4px 32px rgba(0,0,0,0.08);" />
+            <div class="project-image-caption">Systematic approach to calendar layout and typography</div>
+        </div>
+
+        <div class="project-section">
+            <h2>Design Concept</h2>
+            <p>How might we encourage users to take action against plastic pollution through calendar design, while keeping the experience motivating rather than discouraging?</p>
+            
+            <h2>Solution</h2>
+            <p>Instead of using real images that may feel shocking or upsetting, the design employs positive, motivating, and approachable visuals to raise awareness about one of the world's largest environmental challenges. This approach aims to inspire action without overwhelming or discouraging users.</p>
+        </div>
+
+        <div class="carousel-container">
+            <h2>Package Design</h2>
+            <div class="carousel-wrapper">
+                <div class="carousel-slide active">
+                    <img src="images/calendar1.png" alt="Calendar Design 1" />
+                    <div class="carousel-caption">Calendar Design 1</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/calendar2.png" alt="Calendar Design 2" />
+                    <div class="carousel-caption">Calendar Design 2</div>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">←</button>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                </div>
+                <button class="carousel-btn next-btn" onclick="changeSlide(1)">→</button>
+            </div>
+        </div>
+
+        <div class="video-container">
+            <h2>Motion Graphic</h2>
+            <p>The motion graphic transforms the static print design into a dynamic narrative, using animation and transitions to highlight the presence of plastic in everyday life. While the print design conveys the message subtly, the motion graphic delivers a more urgent and engaging call to action, capturing the audience's attention like an informative and impactful video.</p>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/ayzBhZVQLgk" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.dot');
+            const totalSlides = slides.length;
+
+            if (totalSlides === 0) return;
+
+            function showSlide(n) {
+                slides[currentSlide].classList.remove('active');
+                dots[currentSlide].classList.remove('active');
+                
+                currentSlide = (n + totalSlides) % totalSlides;
+                
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+
+            window.changeSlide = function(direction) {
+                showSlide(currentSlide + direction);
+            };
+
+            window.currentSlide = function(n) {
+                showSlide(n - 1);
+            };
+
+            // Auto-advance slides every 5 seconds
+            setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUVOO – Project Details | Kurea Tachiiri</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #fafafa;
+            padding-top: 80px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        .project-header {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            padding-top: 2rem;
+            text-align: left;
+            position: relative;
+        }
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #2c2c2c;
+        }
+        .project-title {
+            font-size: 2.8rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            color: #2c2c2c;
+        }
+        .project-meta {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            line-height: 1.6;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 3rem;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-bottom: 1px solid #e0e0e0;
+            transition: border-color 0.3s ease;
+            padding-bottom: 0.2rem;
+        }
+        .back-link:hover {
+            border-bottom-color: #2c2c2c;
+        }
+        .project-section {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            padding: 0;
+        }
+        .project-section:first-of-type {
+            margin-top: 2rem;
+        }
+        .project-image-block {
+            width: 100%;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .project-image-block img {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+        }
+        .project-image-caption {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .project-section h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #2c2c2c;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .project-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: #2c2c2c;
+        }
+        .project-section p, .project-section ul {
+            font-size: 1rem;
+            color: #444;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .project-section ul {
+            margin-left: 0;
+            list-style: none;
+            padding-left: 0;
+        }
+        .project-section li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            line-height: 1.7;
+        }
+        .project-section li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #666;
+            font-weight: 400;
+        }
+        .highlight-box {
+            background: #f8f8f8;
+            border-left: 4px solid #2c2c2c;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #555;
+        }
+        
+        /* Carousel Styles */
+        .carousel-caption {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .carousel-btn {
+            background: transparent;
+            border: 1px solid #ddd;
+            color: #666;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        .carousel-btn:hover {
+            border-color: #2c2c2c;
+            color: #2c2c2c;
+            background: rgba(44, 44, 44, 0.05);
+        }
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .dot.active {
+            background: #2c2c2c;
+        }
+        .dot:hover {
+            background: #666;
+        }
+        
+        /* Documentation Link Styles */
+        .documentation-link {
+            text-align: center;
+            padding: 1rem 0;
+        }
+        .ppt-link {
+            color: #666;
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-bottom: 1px solid #e0e0e0;
+            transition: border-color 0.3s ease;
+            padding-bottom: 0.2rem;
+        }
+        .ppt-link:hover {
+            border-bottom-color: #2c2c2c;
+            color: #2c2c2c;
+        }
+        
+        /* Carousel Styles */
+        .carousel-container {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            position: relative;
+        }
+        .carousel-container h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #2c2c2c;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .carousel-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: #2c2c2c;
+        }
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .carousel-slide.active {
+            display: flex;
+        }
+        .carousel-slide img {
+            max-width: 100%;
+            max-height: 350px;
+            width: auto;
+            height: auto;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+            object-fit: contain;
+        }
+        .carousel-caption {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .carousel-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        .carousel-btn {
+            background: #2c2c2c;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+        .carousel-btn:hover {
+            background: #444;
+        }
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .dot.active {
+            background: #2c2c2c;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            .project-section {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+            .project-image-block {
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+            .project-title {
+                font-size: 2.2rem;
+            }
+            .carousel-nav {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html#projects" class="back-link">← Back to Projects</a>
+        <header class="project-header">
+            <div class="project-title">NUVOO</div>
+            <div class="project-meta">SERVICE DESIGN | UIUX | 2025</div>
+            <div class="project-meta">Tools: Figma, Adobe Illustrator, Shapr3D</div>
+            <div class="project-meta">Role: Strategic Leader (UX Research, 3D modeling, Branding)</div>
+        </header>
+        
+        <div class="project-image-block" style="max-width: 100%; margin: 0 auto 4rem auto; padding: 0;">
+            <img src="images/nuvoo-header .png" alt="NUVOO Header" style="width: 100%; max-width: 100%; border-radius: 0;" />
+        </div>
+
+        <div class="project-section">
+            <div class="documentation-link">
+                <a href="https://www.figma.com/deck/Uu4UiAPPctGhhszY2j1HWP/Group12_FinalPPT_Capstone?node-id=28-429&t=KTh4KPfIbU9aUjvs-1" class="ppt-link" target="_blank">View Full Project Proposal</a>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Project Overview</h2>
+            <div class="highlight-box">
+                <p>A design-driven social innovation project that reimagines how unused but functional eyeglasses can be repurposed in South Korea.</p>
+            </div>
+        </div>
+        
+        <div class="project-section">
+            <h2>Problem Statement</h2>
+            <p>Many households in South Korea accumulate old but functional glasses, with no clear or convenient way to donate them. This leads to unnecessary waste and missed opportunities for social good, as these glasses could benefit those in need.</p>
+            
+            <h2>Solution Approach</h2>
+            <p>NUVOO introduces a smart donation system using accessible kiosks and local partnerships. The system makes it easy for anyone to donate glasses, ensures efficient collection and distribution, and promotes sustainability by giving unused items a second life.</p>
+        </div>
+
+        <div class="project-section">
+            <h2>Design Process</h2>
+            <ul>
+                <li>Conducted user research to identify the problem of unused glasses and lack of donation channels</li>
+                <li>Developed service design strategy for accessible donation system</li>
+                <li>Created user-friendly kiosk interface design for easy drop-off and tracking</li>
+                <li>Established comprehensive branding and visual identity system for NUVOO</li>
+                <li>Built partnerships framework for local collection and distribution network</li>
+                <li>Prototyped 3D models and interactive interfaces using Figma and Shapr3D</li>
+            </ul>
+        </div>
+
+        <div class="carousel-container">
+            <h2>Project Gallery</h2>
+            <div class="carousel-wrapper">
+                <div class="carousel-slide active">
+                    <img src="images/nuvoo-cover.png" alt="NUVOO logo and branding" />
+                    <div class="carousel-caption">NUVOO logo and brand identity</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/Color System.png" alt="NUVOO Color System" />
+                    <div class="carousel-caption">Brand color system and guidelines</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/mockup.png" alt="NUVOO Mockup" />
+                    <div class="carousel-caption">Product mockup and application</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/nuvoopamphlet1.png" alt="NUVOO Pamphlet Design 1" />
+                    <div class="carousel-caption">Promotional pamphlet design</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/nuvoopamphlet2.png" alt="NUVOO Pamphlet Design 2" />
+                    <div class="carousel-caption">Pamphlet layout and content</div>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">←</button>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+                <button class="carousel-btn next-btn" onclick="changeSlide(1)">→</button>
+            </div>
+        </div>
+
+        <!-- Add more project-image-blocks and sections as needed -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.dot');
+            const totalSlides = slides.length;
+
+            if (totalSlides === 0) return;
+
+            function showSlide(n) {
+                slides[currentSlide].classList.remove('active');
+                dots[currentSlide].classList.remove('active');
+                
+                currentSlide = (n + totalSlides) % totalSlides;
+                
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+
+            window.changeSlide = function(direction) {
+                showSlide(currentSlide + direction);
+            };
+
+            window.currentSlide = function(n) {
+                showSlide(n - 1);
+            };
+
+            // Auto-advance slides every 5 seconds
+            setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+        });
+    </script>
+</body>
+</html> 
