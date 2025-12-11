@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Messy Drawer – Project Details | Kurea Tachiiri</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #fafafa;
+            padding-top: 80px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        .project-header {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            padding-top: 2rem;
+            text-align: left;
+            position: relative;
+        }
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #2c2c2c;
+        }
+        .project-title {
+            font-size: 2.8rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            color: #2c2c2c;
+        }
+        .project-meta {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            line-height: 1.6;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 3rem;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-bottom: 1px solid #e0e0e0;
+            transition: border-color 0.3s ease;
+            padding-bottom: 0.2rem;
+        }
+        .back-link:hover {
+            border-bottom-color: #2c2c2c;
+        }
+        .project-section {
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+            padding: 0;
+        }
+        .project-section:first-of-type {
+            margin-top: 2rem;
+        }
+        .project-image-block {
+            width: 100%;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .project-image-block img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+        }
+        .project-image-block img.zoom-in {
+            transform: scale(1.15);
+            object-fit: cover;
+        }
+        .project-image-caption {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .project-section h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #2c2c2c;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .project-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: #2c2c2c;
+        }
+        .project-section p, .project-section ul {
+            font-size: 1rem;
+            color: #444;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+        .project-section ul {
+            margin-left: 0;
+            list-style: none;
+            padding-left: 0;
+        }
+        .project-section li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: #444;
+            line-height: 1.7;
+        }
+        .project-section li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #666;
+            font-weight: 400;
+        }
+        .highlight-box {
+            background: #f8f8f8;
+            border-left: 4px solid #2c2c2c;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #555;
+        }
+        
+        /* Carousel Styles */
+        .carousel-container {
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+            position: relative;
+        }
+        .carousel-container h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #2c2c2c;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .carousel-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: #2c2c2c;
+        }
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(44, 44, 44, 0.8);
+            color: white;
+            border: none;
+            padding: 1rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background 0.3s ease;
+            z-index: 10;
+        }
+        .carousel-btn:hover {
+            background: rgba(44, 44, 44, 1);
+        }
+        .carousel-btn.prev-btn {
+            left: 1rem;
+        }
+        .carousel-btn.next-btn {
+            right: 1rem;
+        }
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .carousel-slide.active {
+            display: flex;
+        }
+        .carousel-slide img {
+            max-width: 1000px;
+            width: 100%;
+            max-height: 100%;
+            height: auto;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+            object-fit: contain;
+        }
+        .carousel-caption {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .dot.active {
+            background: #2c2c2c;
+        }
+        
+        /* Text Carousel Styles */
+        .text-carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+        .text-carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: none;
+            padding: 2rem 4rem;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .text-carousel-slide.active {
+            display: block;
+            opacity: 1;
+            position: relative;
+        }
+        .text-carousel-slide p {
+            font-size: 1rem;
+            color: #444;
+            font-weight: 300;
+            line-height: 1.8;
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            .project-section {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+            .project-image-block {
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+            .project-title {
+                font-size: 2.2rem;
+            }
+            .carousel-nav {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html#projects" class="back-link">← Back to Projects</a>
+        <header class="project-header">
+            <div class="project-title">My Messy Drawer</div>
+            <div class="project-meta">UIUX | Storytelling Interactive Media | 2025</div>
+        </header>
+        
+        <div class="project-image-block" style="max-width: 100%; margin: 0 auto 4rem auto; padding: 0;">
+            <img src="images/header_MMD.jpg" alt="My Messy Drawer Header" style="width: 100%; max-width: 100%; border-radius: 0;" />
+        </div>
+
+        <div class="project-section">
+            <h2>Project Overview</h2>
+            <div class="highlight-box">
+                <p>Beginning as a children's storybook, My Messy Drawer explores the tension between the public self and the private self through the metaphor of a clean desk with a messy drawer hidden beneath it.</p>
+            </div>
+        </div>
+
+        <div class="carousel-container" id="concept-carousel">
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev-btn" onclick="changeSlideConcept(-1)">←</button>
+                <div class="carousel-slide active">
+                    <img src="images/mymessydrawer_book.png" alt="My Messy Drawer Book" />
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/MMD_page2_.png" alt="My Messy Drawer Page 2" />
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/MMD_page3.png" alt="My Messy Drawer Page 3" />
+                </div>
+                <button class="carousel-btn next-btn" onclick="changeSlideConcept(1)">→</button>
+            </div>
+            <div class="carousel-nav">
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlideConcept(1)"></span>
+                    <span class="dot" onclick="currentSlideConcept(2)"></span>
+                    <span class="dot" onclick="currentSlideConcept(3)"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-section">
+            <h2>Concept & Inspiration</h2>
+            <p>This project grew from the realization that identity is rarely as tidy as we present it. The metaphor of a neat desk with a messy drawer captures the tension between our controlled, outward-facing self and the hidden layers of uncertainty, vulnerability, and unfiltered thoughts we carry. Drawing inspiration from children's books, emotional regulation research, and personal narrative, My Messy Drawer examines how we organize, conceal, and reveal the parts of ourselves that don't fit neatly into everyday presentation.</p>
+        </div>
+
+        <div class="project-image-block" style="overflow: hidden;">
+            <img src="images/himitsu studio_web.png" alt="Himitsu Studio Web" class="zoom-in" />
+        </div>
+
+        <div class="project-section">
+            <h2>Design Process</h2>
+            <p>The design process began with extensive research into interactive storytelling, emotional design, and user experience patterns that create meaningful connections. I explored how physical metaphors translate to digital interfaces, studying the psychology of discovery and the power of hidden content.</p>
+            <p>Early iterations focused on creating an authentic "messy" aesthetic—one that feels organic and lived-in rather than artificially chaotic. The challenge was balancing visual disorder with usability, ensuring that the messiness enhances rather than hinders the user experience.</p>
+            <p>Typography, color, and interaction patterns were carefully considered to evoke a sense of intimacy and discovery. Each element was designed to feel like it has a history, like it belongs in this digital drawer that has been accumulating memories over time.</p>
+        </div>
+
+        <div class="carousel-container" id="design-process-carousel">
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev-btn" onclick="changeSlideDesignProcess(-1)">←</button>
+                <div class="carousel-slide active">
+                    <img src="images/9.png" alt="Design Process 1" />
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/10.png" alt="Design Process 2" />
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/11.png" alt="Design Process 3" />
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/12.png" alt="Design Process 4" />
+                </div>
+                <button class="carousel-btn next-btn" onclick="changeSlideDesignProcess(1)">→</button>
+            </div>
+            <div class="carousel-nav">
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlideDesignProcess(1)"></span>
+                    <span class="dot" onclick="currentSlideDesignProcess(2)"></span>
+                    <span class="dot" onclick="currentSlideDesignProcess(3)"></span>
+                    <span class="dot" onclick="currentSlideDesignProcess(4)"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Interaction Design</h2>
+            <p>The interaction model centers around exploration and discovery. Users navigate through the drawer by clicking, dragging, and hovering—each interaction revealing new layers of content. The origami letters can be "unfolded" to reveal their messages, creating moments of surprise and emotional connection.</p>
+            <p>I wanted the interactions to feel tactile and responsive, as if users are physically manipulating objects in a real drawer. This required careful attention to animation timing, feedback, and the choreography of how elements move and respond to user input.</p>
+            <p>The experience is intentionally non-linear, allowing users to discover content at their own pace and in their own order. This reflects the nature of memory itself—fragmented, associative, and deeply personal.</p>
+        </div>
+
+        <div class="carousel-container" id="interaction-carousel">
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev-btn" onclick="changeSlideInteraction(-1)">←</button>
+                <div class="carousel-slide active">
+                    <img src="images/visualidentity1.png" alt="Interaction Patterns 1" />
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/visualidentity2.png" alt="Interaction Patterns 2" />
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/visualidentity3.png" alt="Interaction Patterns 3" />
+                </div>
+                <button class="carousel-btn next-btn" onclick="changeSlideInteraction(1)">→</button>
+            </div>
+            <div class="carousel-nav">
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlideInteraction(1)"></span>
+                    <span class="dot" onclick="currentSlideInteraction(2)"></span>
+                    <span class="dot" onclick="currentSlideInteraction(3)"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h2>Technical Approach</h2>
+            <p>The project leverages modern web technologies to create smooth, responsive interactions while maintaining the organic, handcrafted aesthetic. CSS animations and JavaScript handle the complex choreography of elements, while careful optimization ensures the experience feels fluid across different devices.</p>
+            <p>One of the key technical challenges was creating a sense of depth and layering within the drawer interface. This required careful z-index management and strategic use of shadows and opacity to create visual hierarchy and the illusion of objects stacked within a three-dimensional space.</p>
+        </div>
+
+        <div class="project-section">
+            <h2>Reflection</h2>
+            <p>This project represents a departure from more traditional portfolio work—it's less about solving a specific problem and more about exploring a feeling, a concept, a way of being. Working on something so personal has been both challenging and liberating.</p>
+            <p>It has taught me about the power of vulnerability in design, about how digital spaces can hold emotional weight, and about the importance of creating experiences that allow for quiet moments of reflection. The "messiness" isn't just aesthetic—it's a deliberate choice to embrace imperfection and authenticity in digital design.</p>
+            <p>As I continue to develop this project, I find myself returning to it, adding new letters, new feelings, new layers. In many ways, it has become its own messy drawer—a space where I can explore ideas and emotions that don't fit neatly into other projects.</p>
+        </div>
+
+        <div class="carousel-container" id="gallery-carousel">
+            <h2>Project Gallery</h2>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">←</button>
+                <div class="carousel-slide active">
+                    <img src="images/messy-drawer-1.png" alt="My Messy Drawer Screenshot 1" />
+                    <div class="carousel-caption">Interactive drawer interface</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/messy-drawer-2.png" alt="My Messy Drawer Screenshot 2" />
+                    <div class="carousel-caption">Origami letter interactions</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/messy-drawer-3.png" alt="My Messy Drawer Screenshot 3" />
+                    <div class="carousel-caption">Detail view of unfolded letter</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/messy-drawer-4.png" alt="My Messy Drawer Screenshot 4" />
+                    <div class="carousel-caption">Mobile responsive design</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/messy-drawer-5.png" alt="My Messy Drawer Screenshot 5" />
+                    <div class="carousel-caption">Visual design details</div>
+                </div>
+                <button class="carousel-btn next-btn" onclick="changeSlide(1)">→</button>
+            </div>
+            <div class="carousel-nav">
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Concept carousel
+            const conceptCarousel = document.getElementById('concept-carousel');
+            if (conceptCarousel) {
+                let currentConceptSlide = 0;
+                const conceptSlides = conceptCarousel.querySelectorAll('.carousel-slide');
+                const conceptDots = conceptCarousel.querySelectorAll('.dot');
+                const totalConceptSlides = conceptSlides.length;
+
+                function showConceptSlide(n) {
+                    conceptSlides[currentConceptSlide].classList.remove('active');
+                    conceptDots[currentConceptSlide].classList.remove('active');
+                    
+                    currentConceptSlide = (n + totalConceptSlides) % totalConceptSlides;
+                    
+                    conceptSlides[currentConceptSlide].classList.add('active');
+                    conceptDots[currentConceptSlide].classList.add('active');
+                }
+
+                window.changeSlideConcept = function(direction) {
+                    showConceptSlide(currentConceptSlide + direction);
+                };
+
+                window.currentSlideConcept = function(n) {
+                    showConceptSlide(n - 1);
+                };
+
+                // Auto-advance concept slides every 5 seconds
+                if (totalConceptSlides > 1) {
+                    setInterval(() => {
+                        showConceptSlide(currentConceptSlide + 1);
+                    }, 5000);
+                }
+            }
+
+            // Project Gallery carousel
+            const galleryCarousel = document.getElementById('gallery-carousel');
+            if (galleryCarousel) {
+                let currentGallerySlide = 0;
+                const gallerySlides = galleryCarousel.querySelectorAll('.carousel-slide');
+                const galleryDots = galleryCarousel.querySelectorAll('.dot');
+                const totalGallerySlides = gallerySlides.length;
+
+                function showGallerySlide(n) {
+                    gallerySlides[currentGallerySlide].classList.remove('active');
+                    galleryDots[currentGallerySlide].classList.remove('active');
+                    
+                    currentGallerySlide = (n + totalGallerySlides) % totalGallerySlides;
+                    
+                    gallerySlides[currentGallerySlide].classList.add('active');
+                    galleryDots[currentGallerySlide].classList.add('active');
+                }
+
+                window.changeSlide = function(direction) {
+                    showGallerySlide(currentGallerySlide + direction);
+                };
+
+                window.currentSlide = function(n) {
+                    showGallerySlide(n - 1);
+                };
+
+                // Auto-advance gallery slides every 5 seconds
+                if (totalGallerySlides > 1) {
+                    setInterval(() => {
+                        showGallerySlide(currentGallerySlide + 1);
+                    }, 5000);
+                }
+            }
+
+            // Design Process carousel
+            const designProcessCarousel = document.getElementById('design-process-carousel');
+            if (designProcessCarousel) {
+                let currentDesignProcessSlide = 0;
+                const designProcessSlides = designProcessCarousel.querySelectorAll('.carousel-slide');
+                const designProcessDots = designProcessCarousel.querySelectorAll('.dot');
+                const totalDesignProcessSlides = designProcessSlides.length;
+
+                function showDesignProcessSlide(n) {
+                    designProcessSlides[currentDesignProcessSlide].classList.remove('active');
+                    designProcessDots[currentDesignProcessSlide].classList.remove('active');
+                    
+                    currentDesignProcessSlide = (n + totalDesignProcessSlides) % totalDesignProcessSlides;
+                    
+                    designProcessSlides[currentDesignProcessSlide].classList.add('active');
+                    designProcessDots[currentDesignProcessSlide].classList.add('active');
+                }
+
+                window.changeSlideDesignProcess = function(direction) {
+                    showDesignProcessSlide(currentDesignProcessSlide + direction);
+                };
+
+                window.currentSlideDesignProcess = function(n) {
+                    showDesignProcessSlide(n - 1);
+                };
+
+                // Auto-advance design process slides every 5 seconds
+                if (totalDesignProcessSlides > 1) {
+                    setInterval(() => {
+                        showDesignProcessSlide(currentDesignProcessSlide + 1);
+                    }, 5000);
+                }
+            }
+
+            // Interaction carousel
+            const interactionCarousel = document.getElementById('interaction-carousel');
+            if (interactionCarousel) {
+                let currentInteractionSlide = 0;
+                const interactionSlides = interactionCarousel.querySelectorAll('.carousel-slide');
+                const interactionDots = interactionCarousel.querySelectorAll('.dot');
+                const totalInteractionSlides = interactionSlides.length;
+
+                function showInteractionSlide(n) {
+                    interactionSlides[currentInteractionSlide].classList.remove('active');
+                    interactionDots[currentInteractionSlide].classList.remove('active');
+                    
+                    currentInteractionSlide = (n + totalInteractionSlides) % totalInteractionSlides;
+                    
+                    interactionSlides[currentInteractionSlide].classList.add('active');
+                    interactionDots[currentInteractionSlide].classList.add('active');
+                }
+
+                window.changeSlideInteraction = function(direction) {
+                    showInteractionSlide(currentInteractionSlide + direction);
+                };
+
+                window.currentSlideInteraction = function(n) {
+                    showInteractionSlide(n - 1);
+                };
+
+                // Auto-advance interaction slides every 5 seconds
+                if (totalInteractionSlides > 1) {
+                    setInterval(() => {
+                        showInteractionSlide(currentInteractionSlide + 1);
+                    }, 5000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
