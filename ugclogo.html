@@ -219,22 +219,32 @@
         }
         .carousel-nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             margin-top: 2rem;
         }
         .carousel-btn {
-            background: #2c2c2c;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(44, 44, 44, 0.8);
             color: white;
             border: none;
-            padding: 0.8rem 1.2rem;
+            padding: 1rem 1.2rem;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.2rem;
             transition: background 0.3s ease;
+            z-index: 10;
         }
         .carousel-btn:hover {
-            background: #444;
+            background: rgba(44, 44, 44, 1);
+        }
+        .carousel-btn.prev-btn {
+            left: 1rem;
+        }
+        .carousel-btn.next-btn {
+            right: 1rem;
         }
         .carousel-dots {
             display: flex;
@@ -250,6 +260,47 @@
         }
         .dot.active {
             background: #2c2c2c;
+        }
+        
+        /* PDF Viewer Styles */
+        .pdf-viewer-container {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            padding: 0;
+        }
+        .pdf-viewer-container h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: #2c2c2c;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .pdf-viewer-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: #2c2c2c;
+        }
+        .pdf-viewer {
+            width: 100%;
+            height: 800px;
+            border: none;
+            border-radius: 0;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+            overflow: auto;
+        }
+        .pdf-viewer-wrapper {
+            width: 100%;
+            height: 800px;
+            overflow: auto;
+            border: 1px solid #e0e0e0;
+            background: #f8f8f8;
         }
         
         @media (max-width: 768px) {
@@ -280,10 +331,6 @@
             <div class="project-title">Club Rebranding Project</div>
             <div class="project-meta">Brand Identity | Visual Identity | Logo Design | 2024</div>
         </header>
-        
-        <div class="project-image-block" style="max-width: 100%; margin: 0 auto 4rem auto; padding: 0;">
-            <img src="images/ugc-logo-header.png" alt="Club Rebranding Header" style="width: 100%; max-width: 100%; border-radius: 0;" />
-        </div>
 
         <div class="project-section">
             <h2>Project Overview</h2>
@@ -291,7 +338,29 @@
                 <p>Redesigning the logo of Yonsei UIC's biggest international club to better represent its multicultural, inclusive, and globally connected community.</p>
             </div>
         </div>
-        
+
+        <div class="carousel-container">
+            <h2>Before & After</h2>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">←</button>
+                <div class="carousel-slide active">
+                    <img src="images/ugclogobefore.png" alt="Before Logo" />
+                    <div class="carousel-caption">Before</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/ugclogorebrand.png" alt="After Logo" />
+                    <div class="carousel-caption">After</div>
+                </div>
+                <button class="carousel-btn next-btn" onclick="changeSlide(1)">→</button>
+            </div>
+            <div class="carousel-nav">
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                </div>
+            </div>
+        </div>
+
         <div class="project-section">
             <h2>Challenge</h2>
             <p>The existing logo did not adequately reflect the club's diverse, inclusive nature and global connections. The rebranding needed to capture the essence of a community that brings together students from various cultural backgrounds while maintaining a cohesive visual identity.</p>
@@ -300,20 +369,12 @@
             <p>The new logo design emphasizes unity in diversity, incorporating elements that represent global connectivity and cultural inclusivity. The visual identity system creates a strong, memorable brand that resonates with both current members and prospective students.</p>
         </div>
 
-        <div class="carousel-container">
-            <h2>Project Gallery</h2>
-            <div class="carousel-wrapper">
-                <div class="carousel-slide active">
-                    <img src="images/ugc-logo-1.png" alt="Club Logo Design" />
-                    <div class="carousel-caption">New logo design</div>
-                </div>
-            </div>
-            <div class="carousel-nav">
-                <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">←</button>
-                <div class="carousel-dots">
-                    <span class="dot active" onclick="currentSlide(1)"></span>
-                </div>
-                <button class="carousel-btn next-btn" onclick="changeSlide(1)">→</button>
+        <div class="pdf-viewer-container">
+            <h2>Project Documentation</h2>
+            <div class="pdf-viewer-wrapper">
+                <iframe class="pdf-viewer" src="Logo Change .pdf" type="application/pdf">
+                    <p>Your browser does not support PDFs. <a href="Logo Change .pdf">Download the PDF</a> instead.</p>
+                </iframe>
             </div>
         </div>
     </div>
